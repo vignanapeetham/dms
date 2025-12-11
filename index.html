@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Opening…</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:#fff;
+      color:#222;
+      margin:0;
+      padding:40px;
+      text-align:center;
+    }
+    a.button {
+      display:inline-block;
+      padding:10px 18px;
+      background:#0078ff;
+      color:#fff;
+      border-radius:8px;
+      text-decoration:none;
+      margin-top:12px;
+      font-weight:600;
+    }
+    .small { color:#666; font-size:14px; margin-top:18px; }
+    code { background:#f3f3f3; padding:4px 8px; border-radius:6px; }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      // Read ?token=... from URL
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get("token") || "";
+
+      // Build your custom scheme link
+      const deepLink = "vigna://?token=" + encodeURIComponent(token);
+
+      // Attempt to open the app immediately
+      window.location = deepLink;
+
+      // Update manual button and displayed token
+      document.getElementById("openBtn").href = deepLink;
+    
+    });
+  </script>
+</head>
+
+<body>
+  <h2>Opening your VignanaPeetham app…</h2>
+  <p>If nothing happens, click the button below:</p>
+
+  <a id="openBtn" class="button" href="#">Open App</a>
+
+</body>
+</html>
